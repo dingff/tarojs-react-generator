@@ -1,0 +1,67 @@
+{
+  "name": "tarojs-react-generator",
+  "version": "1.4.0",
+  "description": "Taro 页面/组件创建工具，支持 Taro 3 + React",
+  "main": "dist/cjs/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "build:deps": "father prebundle",
+    "prepare": "husky install",
+    "prepublishOnly": "father doctor && npm run build",
+    "release": "npm run build && release-it --only-version"
+  },
+  "keywords": [
+    "Taro",
+    "React"
+  ],
+  "repository": "dingff/tarojs-react-generator",
+  "authors": [
+    "dingff0923@foxmail.com"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@types/babel__generator": "^7.6.4",
+    "@types/babel__traverse": "^7.18.3",
+    "@types/ejs": "^3.1.2",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "father": "^4.1.7",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "release-it": "^15.7.0"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.21.4",
+    "@babel/parser": "^7.21.4",
+    "@babel/traverse": "^7.21.4",
+    "@babel/types": "^7.21.4",
+    "ejs": "^3.1.9",
+    "fs-extra": "^11.1.0"
+  }
+}
