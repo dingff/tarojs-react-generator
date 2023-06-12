@@ -76,10 +76,10 @@ function writeFileErrorHandler(err:any) {
   if (err) throw err
 }
 
-const updateRouterList = (appPath: string, page: string, updateRouter: { enable: boolean, space: number }) => {
+const updateRouterList = (appPath: string, page: string, updateRouter: { enable: boolean, space: number }, configExt: string) => {
   if (updateRouter.enable === false) return
   const spaces = Array(updateRouter.space || 4).fill(' ').join('')
-  const configPath = path.join(appPath, 'src/app.config.ts')
+  const configPath = path.join(appPath, `src/app.config.${configExt}`)
   fs.readFile(configPath, 'utf8', (err, data) => {
     if (err) throw (err)
     const ast = parse(data, {
@@ -193,6 +193,6 @@ export function pageGenerator({
     console.log(chalk.black(`创建文件：${path.join(outputDir, `index.config.${configExt}`)}`))
   }
   // 更新路由
-  updateRouterList(appPath, `pages/${pagePath}/index`, updateRouter)
+  updateRouterList(appPath, `pages/${pagePath}/index`, updateRouter, configExt)
   console.log(chalk.green(`页面「${pageName}」创建成功${updateRouter.enable === false ? '' : '，路由已更新'}`))
 }
