@@ -1,6 +1,6 @@
 {
   "name": "tarojs-react-generator",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Taro 页面/组件创建工具，支持 Taro 3 + React",
   "main": "dist/cjs/index.js",
   "types": "dist/cjs/index.d.ts",
