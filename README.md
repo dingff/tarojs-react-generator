@@ -33,7 +33,7 @@ const config = {
 | 参数项 | 类型 | 说明 | 默认值 |
 | :-----| :---- | :---- | :---- |
 | css | string | 指定 css 预处理器，可选 ```none```, ```sass```, ```less```, ```stylus``` | ```sass```|
-| cssModules | boolean | 是否开启 cssModules，可选 ```true```, ```false```  | ```true``` |
+| cssModules | boolean | 是否开启 cssModules（只针对页面生效），可选 ```true```, ```false``` | ```true``` |
 | typescript | boolean | 是否使用 typescript，可选 ```true```, ```false```  | ```false``` |
 | hooks | boolean | 是否使用 hooks，可选 ```true```, ```false```  | ```false``` |
 | createConfigFile | boolean | 是否单独创建页面配置文件，可选 ```true```, ```false```  | ```true``` |

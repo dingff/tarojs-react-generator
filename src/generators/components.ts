@@ -58,14 +58,12 @@ interface P {
   componentPath: string;
   appPath: string;
   chalk: any;
-  cssModules: boolean;
   typescript: boolean;
   hooks: boolean;
   componentTpl: string;
   styleTpl: string;
 }
 export function componentGenerator({
-  cssModules,
   componentPath,
   appPath,
   chalk,
@@ -75,6 +73,7 @@ export function componentGenerator({
   componentTpl,
   styleTpl,
 }: P) {
+  const cssModules = false
   const jsExt = typescript ? 'tsx' : 'jsx'
   const pathArr = componentPath.split('/')
   const componentName = upperFirst(pathArr.pop() ?? '')
