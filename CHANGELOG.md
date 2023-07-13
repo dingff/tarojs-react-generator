@@ -1,5 +1,12 @@
 
 
+# [1.5.0](https://github.com/dingff/tarojs-react-generator/compare/1.4.2...1.5.0) (2023-07-13)
+
+
+### Features
+
+* **com:** components should not use cssModules ([ff87414](https://github.com/dingff/tarojs-react-generator/commit/ff874140cfb2e70502d63134a168572f41ef8f57))
+
 ## [1.4.2](https://github.com/dingff/tarojs-react-generator/compare/1.4.1...1.4.2) (2023-06-12)
 
 
