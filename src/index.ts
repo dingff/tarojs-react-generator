@@ -2,7 +2,7 @@ import { componentGenerator } from './generators/components'
 import { pageGenerator } from './generators/page'
 import { getCssExt } from './utils'
 
-interface optsType {
+interface IOptsType {
   css?: string;
   cssModules?: boolean;
   typescript?: boolean;
@@ -17,7 +17,7 @@ interface optsType {
   styleTpl?: string;
   componentTpl?: string;
 }
-export default (ctx: any, pluginOpts: optsType) => {
+export default (ctx: any, pluginOpts: IOptsType) => {
   const {
     css = 'sass',
     cssModules = true,
@@ -58,7 +58,6 @@ export default (ctx: any, pluginOpts: optsType) => {
       }
       if (typeof com === 'string') {
         return componentGenerator({
-          cssModules,
           componentPath: com,
           appPath,
           cssExt,

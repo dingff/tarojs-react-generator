@@ -8,52 +8,7 @@ import {
 } from '../utils'
 import { componentTplMap } from './template'
 
-const getComStr = ({
-  componentTpl,
-  appPath,
-  name,
-  cssExt,
-  cssModules,
-  hooks,
-  chalk,
-  typescript,
-}: any) => {
-  let str = ''
-  if (componentTpl) {
-    str = createByEjs(path.join(appPath, componentTpl), {
-      name,
-    }, chalk.red('读取组件模板失败，请检查路径或文件是否正确'))
-  } else {
-    str = componentTplMap[hooks ? 'hooks' : 'class']({ name, cssExt, cssModules, typescript })
-  }
-  return str
-}
-
-const getStyleStr = ({
-  styleTpl,
-  appPath,
-  name,
-  chalk,
-}: any) => {
-  let str = ''
-  if (styleTpl) {
-    str = createByEjs(path.join(appPath, styleTpl), {
-      name,
-      isPage: false,
-    }, chalk.red('读取样式模板失败，请检查路径或文件是否正确'))
-  } else {
-    str = `.${lowerFirst(name)}Com {
-  
-}
-`
-  }
-  return str
-}
-
-function writeFileErrorHandler(err:any) {
-  if (err) throw err
-}
-interface P {
+interface IProps {
   cssExt: string;
   componentPath: string;
   appPath: string;
@@ -72,7 +27,7 @@ export function componentGenerator({
   hooks,
   componentTpl,
   styleTpl,
-}: P) {
+}: IProps) {
   const cssModules = false
   const jsExt = typescript ? 'tsx' : 'jsx'
   const pathArr = componentPath.split('/')
@@ -129,4 +84,49 @@ export function componentGenerator({
   )
   console.log(chalk.black(`创建文件：${path.join(outputDir, `index${getCssModuleExt(cssModules)}.${cssExt}`)}`))
   console.log(chalk.green(`组件「${componentName}」创建成功`))
+}
+function getComStr({
+  componentTpl,
+  appPath,
+  name,
+  cssExt,
+  cssModules,
+  hooks,
+  chalk,
+  typescript,
+}: any) {
+  let str = ''
+  if (componentTpl) {
+    str = createByEjs(path.join(appPath, componentTpl), {
+      name,
+    }, chalk.red('读取组件模板失败，请检查路径或文件是否正确'))
+  } else {
+    str = componentTplMap[hooks ? 'hooks' : 'class']({ name, cssExt, cssModules, typescript })
+  }
+  return str
+}
+
+function getStyleStr({
+  styleTpl,
+  appPath,
+  name,
+  chalk,
+}: any) {
+  let str = ''
+  if (styleTpl) {
+    str = createByEjs(path.join(appPath, styleTpl), {
+      name,
+      isPage: false,
+    }, chalk.red('读取样式模板失败，请检查路径或文件是否正确'))
+  } else {
+    str = `.${lowerFirst(name)}Com {
+  
+}
+`
+  }
+  return str
+}
+
+function writeFileErrorHandler(err: any) {
+  if (err) throw err
 }
