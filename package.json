@@ -13,8 +13,10 @@
     "release": "npm run build && release-it --only-version"
   },
   "keywords": [
-    "Taro",
-    "React"
+    "taro",
+    "plugin",
+    "react",
+    "generator"
   ],
   "repository": "dingff/tarojs-react-generator",
   "authors": [
